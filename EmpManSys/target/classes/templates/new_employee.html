@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- This is for using Thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Employee Management System</title> 
+ <style type="text/css">
+   label,input{width:130px;float:left;margin:5px;}
+   .row{width:300px;float:left;;margin:5px;}
+   button{width:300px;float:left;;margin:5px;}
+   .error{color:red;}
+ </style>
+</head>
+<body style="max-width: 960px; margin: 16px auto; padding: 16px">
+	<h3>Add New Employee</h3>
+	<!-- The th:action="@{/saveEmployee}" expression directs the form to POST to the /saveEmployee endpoint.
+		 The th:object="${employee}" expression declares the model object to use for collecting the form data.
+		 The three form fields, expressed with th:field, correspond to the fields in the Employee object. -->
+		<div class="row"> 
+		<div th:if="${error}">
+		  <div th:each="e: ${error}">
+		  <span th:text="${e}" class="error"></span>
+		  </div>
+		</div>
+		
+	<form th:action="@{/saveEmployee}" th:object="${employee}" method="post">
+	<div class="row"> 
+			 <label for="id">
+					Employee Id</label>
+				<input id="id" type="text" 
+					th:field="*{id}"> 
+			 <label for="name">
+					Name</label>
+				<input id="name" type="text"
+					th:field="*{name}"> 
+			<label for="department">
+					Department</label>
+				<input id="department" type="text"
+					th:field="*{department}">  
+			<label for="salary">
+					Salary</label>
+				<input id="salary" type="text"
+					th:field="*{salary}">  
+		
+		<button type="submit">Add
+			Employee</button>
+		</div>
+	</form>
+	<br>
+	<!-- The link which sends GET request to "/"  -->
+	<a th:href="@{/}"><h3>Back</h3></a>
+		</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!-- This is for using Thymeleaf -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Employee Management System</title>
+  <style type="text/css">
+    table{width:500px;}
+    td,tr{padding:5px;text-align:left;}
+    
+ </style>
+</head>
+<body style="max-width: 960px; margin: 16px auto; padding: 16px">
+
+
+	<h3>Employee Manage</h3>
+	<!-- The link which sends GET request to "/showNewEmployeeForm"  -->
+	<a th:href="@{/showNewEmployeeForm}">Add new employee</a><br/><br/>
+	<a th:href="@{/showSearchForm}">Search & delete employee</a>
+	 
+</body>
+</html>
